@@ -104,6 +104,11 @@ let
       };
     };
 
+    sequential-thinking = {
+      name = "Sequential Thinking";
+      command = tools.getToolPath "sequential-thinking";
+    };
+
     github = {
       name = "GitHub";
       command = tools.getToolPath "github";

@@ -83,6 +83,11 @@ let
       binary = "mcp-server-fetch";
     };
 
+    sequential-thinking = mkTool {
+      package = pkgs.mcp-servers;
+      binary = "mcp-server-sequentialthinking";
+    };
+
   };
 
   # Combined tools (base + extra)
