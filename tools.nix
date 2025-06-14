@@ -73,6 +73,11 @@ let
       binary = "mcp-server-filesystem";
     };
 
+    git = mkTool {
+      package = pkgs.mcp-servers;
+      binary = "mcp-server-git";
+    };
+
   };
 
   # Combined tools (base + extra)

@@ -65,6 +65,16 @@ let
       };
     };
 
+    git = {
+      name = "Git";
+      command = tools.getToolPath "git";
+      env = config: {
+        # Reset PYTHONPATH to avoid environmental dependencies affecting the runtime
+        # of this application.
+        PYTHONPATH = "";
+      };
+    };
+
     github = {
       name = "GitHub";
       command = tools.getToolPath "github";
