@@ -2,7 +2,7 @@
 
 let
   inherit (lib) mkOption mkEnableOption mkIf types;
-  mcpServerOptionsType = import ./mcp-server-options.nix lib;
+  mcpServerOptionsType = import ./nix/lib/mcp-server-options.nix lib;
 
   # Helper to transform a simple preset definition into a full module
   mkPresetModule = { name, description ? "MCP integration for ${name}", options ? {}, env ? (_: {}), command, args ? (_: []) }: 

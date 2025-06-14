@@ -29,7 +29,7 @@ let
   # ----------------------
   # Preset Management
   # ----------------------
-  mcpServerOptionsType = import ../../../../mcp-server-options.nix lib;
+  mcpServerOptionsType = import ../../../lib/mcp-server-options.nix lib;
   presetDefinitions = import ../../../../presets.nix { inherit config lib; tools = extendedTools; };
   
   presetOptionTypes = lib.mapAttrs (name: preset: 
