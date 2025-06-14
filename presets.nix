@@ -52,6 +52,19 @@ let
       };
     };
 
+    filesystem = {
+      name = "Filesystem";
+      command = tools.getToolPath "filesystem";
+      args = config: config.allowedPaths;
+      options = {
+        allowedPaths = mkOption {
+          type = types.nonEmptyListOf types.str;
+          description = lib.mdDoc "List of allowed filepaths that your agent can explore";
+          example = [ "/Users/jdoe/Projects" ];
+        };
+      };
+    };
+
     github = {
       name = "GitHub";
       command = tools.getToolPath "github";

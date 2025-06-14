@@ -68,6 +68,11 @@ let
       binary = "mcp-grafana";
     };
 
+    filesystem = mkTool {
+      package = pkgs.mcp-servers;
+      binary = "mcp-server-filesystem";
+    };
+
   };
 
   # Combined tools (base + extra)
