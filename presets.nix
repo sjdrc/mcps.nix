@@ -103,6 +103,11 @@ let
           config.proxyURL
         ])
         ++ (lib.optionals config.ignoreRobotsTxt [ "--ignore-robots-txt" ]);
+      env = config: {
+        # Reset PYTHONPATH to avoid environmental dependencies affecting the runtime
+        # of this application.
+        PYTHONPATH = "";
+      };
       options = {
         proxyURL = mkOption {
           type = types.nullOr types.str;
@@ -139,7 +144,11 @@ let
           "--local-timezone"
           config.localTimezone
         ];
-
+      env = config: {
+        # Reset PYTHONPATH to avoid environmental dependencies affecting the runtime
+        # of this application.
+        PYTHONPATH = "";
+      };
       options = {
         localTimezone = mkOption {
           type = types.str;
