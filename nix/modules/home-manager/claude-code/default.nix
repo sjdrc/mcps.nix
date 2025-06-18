@@ -56,7 +56,7 @@ let
   # ----------------------
   # MCP Sync Script Generation
   # ----------------------
-  mpcSyncScript = pkgs.writeShellScriptBin "mpc-sync" ''
+  mcpSyncScript = pkgs.writeShellScriptBin "mcp-sync" ''
     set -euo pipefail
 
     # Function to check if we have any MCP servers configured
@@ -159,8 +159,8 @@ in
   config = mkIf cfg.enable {
     home.packages = [ cfg.package ];
 
-    home.activation.mpcSync = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      $DRY_RUN_CMD ${mpcSyncScript}/bin/mpc-sync
+    home.activation.mcpSync = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      $DRY_RUN_CMD ${mcpSyncScript}/bin/mcp-sync
     '';
 
     assertions = lib.flatten (
