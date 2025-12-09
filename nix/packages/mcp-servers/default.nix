@@ -128,7 +128,6 @@ let
     npmDepsHash = "sha256-iRPILytyloL6qRMvy2fsDdqkewyqEfcuVspwUN5Lrqw=";
     PUPPETEER_SKIP_DOWNLOAD = 1;
     nativeBuildInputs = [
-      nodePackages.npm
       nodePackages.typescript
       shx
     ];
