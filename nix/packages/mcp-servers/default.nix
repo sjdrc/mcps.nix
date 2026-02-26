@@ -7,7 +7,7 @@
   callPackages,
   fetchFromGitHub,
   buildNpmPackage,
-  nodejs,
+  nodejs_22,
   nodePackages,
   python311,
   symlinkJoin,
@@ -104,6 +104,7 @@ let
     in
     buildNpmPackage {
       pname = "shx";
+      nodejs = nodejs_22;
       inherit version;
       src = fetchFromGitHub {
         owner = "shelljs";
@@ -123,6 +124,7 @@ let
 
   jsServers = buildNpmPackage {
     pname = "mcp-servers";
+    nodejs = nodejs_22;
     inherit version;
     src = "${masterSrc}";
     npmDepsHash = "sha256-iRPILytyloL6qRMvy2fsDdqkewyqEfcuVspwUN5Lrqw=";
@@ -131,7 +133,7 @@ let
       nodePackages.typescript
       shx
     ];
-    buildInputs = [ nodejs ];
+    buildInputs = [ nodejs_22 ];
     installPhase = ''
       mkdir $out
       mkdir $out/bin

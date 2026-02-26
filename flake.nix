@@ -76,14 +76,17 @@
 
       flake.overlays = {
         default =
-          _final: prev:
+          final: prev:
           let
+            inherit (prev) lib;
             unstable-pkgs = import inputs.nixpkgs-unstable { inherit (prev) system; };
+            packageDirs = lib.filterAttrs (_: type: type == "directory") (builtins.readDir ./nix/packages);
           in
           {
             inherit (inputs) uv2nix pyproject pyproject-build-systems;
             inherit (unstable-pkgs) github-mcp-server;
-          };
+          }
+          // lib.mapAttrs (name: _: final.callPackage ./nix/packages/${name}/default.nix {}) packageDirs;
       };
 
       perSystem =
