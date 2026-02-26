@@ -140,6 +140,11 @@ let
       binary = "mcp-nixos";
     };
 
+    context-mode = mkTool {
+      package = pkgs.context-mode;
+      binary = "context-mode";
+    };
+
   };
 
   # Combined tools (base + extra)

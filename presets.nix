@@ -543,6 +543,12 @@ let
       options = { };
     };
 
+    context-mode = {
+      name = "Context Mode";
+      description = "MCP plugin that compresses tool outputs to save context window";
+      command = tools.getToolPath "context-mode";
+    };
+
   };
 
 in
